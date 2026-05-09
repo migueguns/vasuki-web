@@ -1,15 +1,31 @@
+@font-face {
+  font-family: "Pluma";
+  src: local("Pluma"), local("PLUMA");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Brixton Sans";
+  src: local("Brixton Sans"), local("BrixtonSans"), local("BRIXTON SANS");
+  font-display: swap;
+}
+
 :root {
-  --bg-deep: #030712;
-  --bg-elevated: #0a1628;
-  --ice: #7dd3fc;
-  --ice-bright: #e0f2fe;
-  --cyan: #22d3ee;
-  --cyan-dim: rgba(34, 211, 238, 0.15);
-  --text: #f1f5f9;
-  --text-muted: #94a3b8;
-  --border: rgba(148, 163, 184, 0.12);
-  --font-display: "Syne", system-ui, sans-serif;
-  --font-body: "Instrument Sans", system-ui, sans-serif;
+  --bg-deep: #062142;
+  --bg-elevated: #0d47a1;
+  --ice: #81d4fa;
+  --ice-bright: #e8f1fd;
+  --cyan: #41d4f4;
+  --cyan-dim: rgba(65, 212, 244, 0.22);
+  --text: #e8f1fd;
+  --text-muted: #bdd8f9;
+  --border: rgba(129, 212, 250, 0.32);
+  --blue-strong: #0052cc;
+  --blue-mid: #1e88e5;
+  --blue-deep: #0232cc;
+  --slate: #263238;
+  --font-display: "Pluma", "Times New Roman", serif;
+  --font-body: "Brixton Sans", "Trebuchet MS", Arial, sans-serif;
   --radius: 1rem;
   --radius-lg: 1.5rem;
 }
