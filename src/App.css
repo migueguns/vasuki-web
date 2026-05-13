@@ -1,7 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,600;0,700;0,800;0,900&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap");
 
 :root {
-  --vasuki-blue: #0052cc;
+  /* Azul marca (láminas tipo “mensajes clave”) */
+  --vasuki-blue: #0055ff;
   --vasuki-blue-2: #0232cc;
   --vasuki-navy: #0d47a1;
   --vasuki-accent: #1e88e5;
@@ -11,6 +12,9 @@
   --text-dark: #0d0c18;
   --text-muted: #263238;
   --white: #ffffff;
+  --font-display: "Pluma", "Bodoni Moda", "Didot", "Bodoni MT", "Times New Roman", serif;
+  --font-sans: "Brixton Sans", "Montserrat", "Segoe UI", Arial, sans-serif;
+  --type-display-tracking: -0.04em;
 }
 
 .vasuki-page {
@@ -18,7 +22,7 @@
   overflow: hidden;
   background: linear-gradient(180deg, var(--ice-bg), #ffffff 42%, var(--ice-bg));
   color: var(--text-dark);
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
 }
 
 .hero {
@@ -52,7 +56,10 @@
   color: var(--white);
   text-decoration: none;
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .nav__links a.active::after,
@@ -92,17 +99,20 @@
 .hero h1,
 .story h2,
 .moments h2 {
-  font-family: "Bebas Neue", Impact, sans-serif;
+  font-family: var(--font-display);
   text-transform: uppercase;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--type-display-tracking);
+  font-weight: 800;
+  font-optical-sizing: auto;
 }
 
 .hero h1 {
   margin: 0;
   max-width: 610px;
   font-size: clamp(72px, 9vw, 142px);
-  line-height: 0.86;
-  font-weight: 900;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.035em;
 }
 
 .hero__copy p {
@@ -130,8 +140,10 @@
   padding: 15px 26px;
   border-radius: 9px;
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 18px;
+  font-family: var(--font-sans);
+  letter-spacing: 0.01em;
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
@@ -265,11 +277,13 @@
 .benefits {
   position: relative;
   z-index: 3;
+  width: 100%;
   max-width: 1180px;
   margin: -58px auto 34px;
   padding: 0 clamp(18px, 4vw, 40px);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* minmax(0, 1fr) evita que el contenido fuerce el ancho de la grilla */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 26px;
 }
 
@@ -277,11 +291,17 @@
   display: flex;
   align-items: center;
   gap: 24px;
+  min-width: 0;
   min-height: 150px;
   padding: 28px;
   border-radius: 16px;
   background: var(--white);
   box-shadow: 0 16px 36px rgba(0, 82, 204, 0.18);
+}
+
+.benefit-card__icon + div {
+  min-width: 0;
+  flex: 1 1 0%;
 }
 
 .benefit-card__icon {
@@ -300,17 +320,22 @@
 .benefit-card h3 {
   margin: 0;
   color: var(--vasuki-blue);
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-size: 36px;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.9vw, 28px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
+  font-weight: 800;
+  font-optical-sizing: auto;
+  overflow-wrap: break-word;
 }
 
 .benefit-card p {
   margin: 5px 0 0;
   color: var(--text-dark);
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.45;
+  overflow-wrap: break-word;
 }
 
 .story {
@@ -356,7 +381,10 @@
   margin-top: 28px;
   color: var(--vasuki-blue);
   text-decoration: none;
-  font-weight: 900;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .story__visual {
@@ -366,9 +394,6 @@
   width: min(100%, 640px);
   min-height: 0;
   height: 440px;
-  display: grid;
-  place-items: center;
-  padding-top: 10px;
   overflow: hidden;
   border-radius: 18px;
   background:
@@ -377,14 +402,17 @@
 }
 
 .story__visual-image {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
-  width: min(340px, 60%);
+  width: auto;
+  max-width: min(340px, 60%);
   height: auto;
   max-height: 100%;
   object-fit: contain;
-  object-position: center 12px;
-  transform: translateY(18px);
+  object-position: center bottom;
   filter: drop-shadow(0 24px 34px rgba(0, 15, 54, 0.42));
 }
 
@@ -475,10 +503,13 @@
 
 .moment-card h3 {
   margin: 0;
-  font-family: "Bebas Neue", Impact, sans-serif;
+  font-family: var(--font-display);
   font-size: 30px;
   line-height: 1;
   text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: var(--type-display-tracking);
+  font-optical-sizing: auto;
 }
 
 .moment-card p {
@@ -498,7 +529,7 @@
   gap: 20px;
   background:
     radial-gradient(circle at 10% 50%, rgba(129, 212, 250, 0.55), transparent 26%),
-    linear-gradient(90deg, #0052cc 0%, #0232cc 55%, #0d47a1 100%);
+    linear-gradient(90deg, var(--vasuki-blue) 0%, #0232cc 55%, #0d47a1 100%);
   color: white;
 }
 
@@ -517,11 +548,13 @@
 
 .vasuki-cta-banner__content h2 {
   margin: 0;
-  font-family: "Bebas Neue", "Oswald", Impact, sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(36px, 4.5vw, 58px);
   line-height: 0.95;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--type-display-tracking);
   text-transform: uppercase;
+  font-weight: 800;
+  font-optical-sizing: auto;
 }
 
 .vasuki-cta-banner__content p {
@@ -539,7 +572,7 @@
   padding: 12px 22px;
   border-radius: 10px;
   background: white;
-  color: #0052cc;
+  color: var(--vasuki-blue);
   text-decoration: none;
   font-size: 16px;
   font-weight: 800;
@@ -560,7 +593,10 @@
   color: white;
   background: #09366c;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 .footer__divider {
@@ -690,4 +726,51 @@
   .footer__divider {
     display: none;
   }
+}
+.footer__whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer__whatsapp-icon {
+  font-size: 28px;
+  color: #25d366;
+  flex-shrink: 0;
+}
+
+.footer__instagram,
+.footer__whatsapp,
+.footer__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer__instagram,
+.footer__whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__instagram:hover,
+.footer__whatsapp:hover,
+.footer__link:hover {
+  opacity: 0.85;
+}
+
+.footer__instagram-icon,
+.footer__whatsapp-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.footer__instagram-icon {
+  color: #e4405f;
+}
+
+.footer__whatsapp-icon {
+  color: #25d366;
 }

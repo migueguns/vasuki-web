@@ -1,4 +1,5 @@
 import "./App.css";
+import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 
 const moments = [
   {
@@ -14,8 +15,8 @@ const moments = [
     icon: "☼",
   },
   {
-    title: "Compartiendo momentos",
-    text: "Momentos que se congelan en el tiempo.",
+    title: "Amigos",
+    text: "Momentos que se congelan.",
     image: "/images/pasion_mundialista.png",
     icon: "☀",
   },
@@ -30,12 +31,12 @@ const benefits = [
   {
     title: "Calidad",
     text: "Hielo premium, limpio y cristalino.",
-    icon: "◇",
+    icon: "⭐"
   },
   {
     title: "Experiencia",
     text: "Transformamos lo cotidiano en momentos únicos.",
-    icon: "♙",
+    icon: "🧊"
   },
 ];
 
@@ -111,7 +112,9 @@ function App() {
             <h1>
               Abrís,
               <br />
-              servís y tuki.
+              servís
+              <br />
+              y tuki.
             </h1>
             <p>
               Hielo premium listo para consumir. Sellado, limpio y siempre listo
@@ -218,8 +221,8 @@ function App() {
           <h2>VASUKI ES PARTE DEL MOMENTO.</h2>
           <p>Sumate a nuestra comunidad y viví la experiencia Vasuki.</p>
 
-          <a href="#contacto" className="vasuki-cta-banner__button">
-            Sumate a Vasuki <span>→</span>
+          <a href="https://www.instagram.com/vasuki.tuki" className="vasuki-cta-banner__button">
+            Sumate a Vasuki 
           </a>
         </div>
 
@@ -227,11 +230,27 @@ function App() {
       </section>
 
       <footer className="footer">
+      <a
+        href="https://www.instagram.com/vasuki.tuki"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="footer__instagram"
+        aria-label="Instagram de Vasuki"
+      >
+        <FaInstagram className="footer__instagram-icon" />
         <span>@vasuki.tuki</span>
+      </a>
         <span className="footer__divider" />
-        <span>www.vasuki.ar</span>
-        <span className="footer__divider" />
-        <span>+54 91157584003</span>
+        <a
+        href="https://wa.me/5491136413029?text=Hola%2C%20quiero%20sumarme%20a%20Vasuki"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="footer__whatsapp"
+        aria-label="WhatsApp de Vasuki"
+      >
+        <FaWhatsapp className="footer__whatsapp-icon" />
+            <span>5491136413029</span>
+      </a>
       </footer>
     </main>
   );
